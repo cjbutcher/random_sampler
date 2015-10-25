@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'rspotify'
+require 'open-uri'
 
 ALPHABET = "abcdefghijklmnopqrstuvwxyz".split("")
 
@@ -12,8 +13,13 @@ get '/' do
 	erb :home
 end
 
+post '/download/:id' do
+	attachment "file.mp3"
+	open(RSpotify::Track.find(params[:id]).preview_url) { |f| f.read }
+end
+
 def set_offset(pretentiousness)
-	@pretentiousness = params[:pretentiousness] || 0
+	@pretentiousness = pretentiousness || 0
 	@pretentiousness == 0 ? @offset = 0 : @offset = rand(0..@pretentiousness.to_i)
 end
 

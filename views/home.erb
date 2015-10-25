@@ -6,6 +6,9 @@
 		Your browser does not support the audio element.
 	</audio>
 	<%= @track.name %>
+	<form action="/download/<%= @track.id %>" method="POST">
+		<button class="ui primary button" id="download">Download</button>
+	</form>
 <% end %>
 
 <form action="/" method="GET">
