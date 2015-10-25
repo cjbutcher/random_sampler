@@ -1,0 +1,35 @@
+<% if @track.nil? %>
+	Nothing found! Try again.
+<% else %>	
+	<audio controls id="player" autoplay="autoplay">
+	  <source src=<%= "#{@track.preview_url}#t=#{@start_time},#{@stop_time}" %> type="audio/mp3">
+		Your browser does not support the audio element.
+	</audio>
+	<%= @track.name %>
+<% end %>
+
+<form action="/" method="GET">
+	<div class="ui input">
+  	Search
+	  <input name="query" type="text" placeholder="Optional" value="<%= @query unless @query.length == 1 %>">
+	</div>
+
+	<div class="ui input">
+		Genre
+	  <input name="genre" type="text" placeholder="E.g. 'soul' or 'electro house'..." value="<%= @genre %>">
+	</div>
+
+	<div class="ui input">
+		Pretentiousness
+	  <input name="pretentiousness" type="text" value="<%= @pretentiousness %>">
+	</div>
+
+	<div class="ui input">
+		Sample Length (sec)
+	  <input name="length" type="text" placeholder="e.g. 0.5" value="<%= @length %>" id="sample_length">
+	</div>
+
+	<button type="submit" class="ui primary button" id="new_track">
+	  New Track
+	</button>
+</form>
