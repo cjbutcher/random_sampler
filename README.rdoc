@@ -1,0 +1,17 @@
+The Magic Sample Machine
+
+DEMO: magic-sample-machine.herokuapp.com
+
+TMSM helps musicians find inspiration and samples by randomly selecting samples of music from Spotify.
+
+TMSM is also intented to help beginners learn Ruby. 
+
+TMSM is a super lightwight app. It's key components are:
+
+- Sintra web framework http://www.sinatrarb.com/
+
+- Semantic UI http://semantic-ui.com/
+
+- Spotify API (https://developer.spotify.com/web-api/endpoint-reference/) - accessed via the rspotify gem (https://github.com/guilhermesad/rspotify)
+
+TMSM is easy for beginners to understand as the app is built across just two main files - app.rb (back-end) and views/home.erb (front-end).
